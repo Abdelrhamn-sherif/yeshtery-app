@@ -1,0 +1,9 @@
+@import '@scss/variables.scss';
+.breadcumbs{
+    color: $dark-color;
+    font-size: $font-16;
+    text-decoration: underline;
+    font-weight: 600;
+    padding: 28px 0px;
+    border-bottom: 1px solid #e0d5d5;
+}

@@ -1,0 +1,16 @@
+@import '@scss/variables.scss';
+
+.section--title{
+    font-size: 28px;
+    color: $purple-color;
+    padding-top: 150px;
+    font-weight: 600;
+    @media screen and (max-width: 776px) {
+        padding-top: 50px;
+    }
+}
+.section--subtitle{
+    font-size: 22px;
+    color: #575756;
+    font-weight: 500;
+}

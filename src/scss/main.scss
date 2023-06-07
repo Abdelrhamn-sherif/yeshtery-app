@@ -1,0 +1,70 @@
+@import '@scss/variables.scss';
+// main styles
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+.pointer{
+    cursor: pointer;
+}
+.form-control:focus{
+    box-shadow: unset !important;
+    border-color: #D8D8D8;
+}
+.btn{
+    &.btn-yellow{        
+        background: $secondary-color;
+        color: #3C3C3B;
+        font-weight: 600;
+        font-size: $font-12;
+        border-radius: 24px;
+        padding: 15px 10px;
+        &:hover{
+            background-color: #ede000;
+        }
+        &.sm{
+            border-radius: 12px;
+            font-size: 10px;
+            padding: 5px 19px;
+            border: unset;
+        }
+    }
+    &.btn-purple{        
+        background: $purple-color;
+        color: #fff;
+        font-weight: 600;
+        font-size: $font-12;
+        border-radius: 24px;
+        padding: 15px 10px;
+        &:hover{
+            background-color: #4b2981;
+        }
+        &.sm{
+            border-radius: 12px;
+            font-size: 10px;
+            padding: 5px 19px;
+            border: unset;
+        }
+    }
+}
+
+// main responsive styles
+@media (min-width: 1200px){
+    .ms-32{
+        margin-left: 22px;
+    }
+    .me-32{
+        margin-right: 22px;
+    }
+    .offcanvas-end{
+        width: 470px;
+    }
+}
+@media (min-width: 300px) and (max-width: 1200px){
+    .ms-32{
+        margin-left: 12px;
+    }
+    .me-32{
+        margin-right: 12px;
+    }
+}

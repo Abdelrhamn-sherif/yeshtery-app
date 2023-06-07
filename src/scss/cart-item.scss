@@ -1,0 +1,28 @@
+@import '@scss/variables';
+.item{
+    padding: 8px;
+    border: 0.75px solid #ECECEC;
+    border-radius: 7px;
+    margin-top: 18px;
+    .item--name{        
+        font-size: $font-14;
+        color:$primary-color;
+        font-weight: 600;
+    }
+    .item--quantity{
+        font-size: $font-11;
+        color:$primary-color;
+        font-weight: 600;
+        padding: 3px 0px;
+    }
+    .item--price{
+        font-size: $font-20;
+        color: $purple-color;
+        font-weight: 600;
+       
+        .small{
+            font-size: 14px;
+        }
+    }
+    
+}

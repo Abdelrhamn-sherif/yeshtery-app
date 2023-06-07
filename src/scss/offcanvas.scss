@@ -1,0 +1,29 @@
+@import '@scss/variables.scss';
+
+.offcanvas-header{
+    padding-bottom: 7px !important;
+    .btn-close{
+        margin-left: auto;
+    }
+}
+.offcanvas-body{
+    .offcanvas--header{
+        font-size: $font-28;
+        text-align: center;
+        color: $purple-color;
+        font-weight: 600;
+    }
+    .offcanvas--title{
+        color: $primary-color;
+        font-size: $font-18;
+        font-weight: 600;
+        padding-top: 20px;
+        
+    }
+    .offcanvas--total{
+        font-size: $font-22;
+        padding-top: 22px;
+        text-align: center;
+        font-weight: 600;
+    }
+}
