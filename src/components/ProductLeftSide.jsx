@@ -1,10 +1,14 @@
+import { useState, useEffect } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import rotate from "@public/images/rotate.png"
 import "@scss/carousel.scss";
 
 export default function ProductLeftSide(props) {
-    const products = props.data.images
+    const [products,SetProducts] =useState([]) 
+    useEffect(function(){
+        SetProducts(props.data.images)    
+    },[props])
     const sliderImages = products.map(product => {
         return (
             <div key={product.id}> 

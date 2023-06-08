@@ -16,7 +16,10 @@ export default function HeaderMid(props) {
     const handleClose = () => setModalShow(false);
     const handleModalShow = () => setModalShow(true);
     const cartItems = props.cartItems;
-      
+    let cartItemsProductsNumbers=0;   
+    let cartItemsTotalAmount=0;   
+    cartItems.map(cartItem => cartItemsProductsNumbers +=   cartItem.quantity);        
+    cartItems.map(cartItem => cartItemsTotalAmount += (cartItem.quantity * cartItem.price));        
     return (
         <>
             <header className="header--mid">
@@ -39,7 +42,7 @@ export default function HeaderMid(props) {
                                 <div className="me-32 header--links pointer" onClick={handleModalShow}>
                                     <span className="position-relative">
                                         <img src={cartM} className="pe-2" />
-                                        <div className="header--cart-itmes">{cartItems.length}</div>
+                                        <div className="header--cart-itmes">{cartItemsProductsNumbers}</div>
                                     </span>
                                     Cart
                                 </div>
@@ -62,21 +65,28 @@ export default function HeaderMid(props) {
             </header>
 
             <Offcanvas show={modalShow} onHide={handleClose} placement='end'>
-                <Offcanvas.Header closeButton>                    
+                <Offcanvas.Header closeButton>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <div className='offcanvas--header'>My Cart</div>
-                   <div className="offcanvas--title">Cart Summary</div>
-                   <CartItems items={cartItems} />
-                   <div className="offcanvas--total">Total: Total: 19,999 LE</div>
-                   <div className="row">
-                        <div className="col-12 col-md-6">
-                            <button className='btn btn-yellow w-100 mt-3'>Review Cart</button>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <button className="btn btn-purple w-100 mt-3">Complete Checkout</button>
-                        </div>
-                   </div>                   
+                    {cartItems.length > 0 ?
+                        <>
+                            <div className="offcanvas--title">Cart Summary</div>
+                            <CartItems items={cartItems} />
+                            <div className="offcanvas--total">Total: {cartItemsTotalAmount} LE</div>
+                            <div className="row">
+                                <div className="col-12 col-md-6">
+                                    <button className='btn btn-yellow w-100 mt-3'>Review Cart</button>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <button className="btn btn-purple w-100 mt-3">Complete Checkout</button>
+                                </div>
+                            </div>
+                        </>
+                        :
+                        <div className='mt-3'>There is no added items</div>
+                    }
+
                 </Offcanvas.Body>
             </Offcanvas>
         </>

@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import StarsRating from '../components/StarsRating'
-import adidas from "@public/images/adidas.svg"
+import { useOutletContext } from "react-router-dom";
+
 import '@scss/product.scss'
 export default function ProductRightSide(props) {
     const productData = props.data;
     const sizesArr = productData.sizes;
     const colorsArr = productData.colors;
+    const [cartItems, addItem] = useOutletContext();
     const [formData, setFormData] = useState({
         'size': "medium",
         'color': "default",
@@ -70,11 +72,13 @@ export default function ProductRightSide(props) {
         })
     }
     function handleSubmit(event) {
-        event.preventDefault()
+        event.preventDefault();
+        addItem(formData, productData)
     }
+    
     return (
         <form onSubmit={handleSubmit}>
-            <img src={adidas} width="60" />
+            <img src={productData.brandImage} width="60" />
             <div className="product--name">{productData.name}</div>
             <div className="product--category">{productData.mainCategory}</div>
             <div className="d-flex align-items-center">

@@ -5,13 +5,18 @@ export default function StarsRating(props){
         <>            
              <ReactStars
                 count={5}                
-                size={30}
+                size={props.starsSize}
                 edit={false}
                 value={props.rate}
                 activeColor="#ffb900"
             />
-            <div className="star--rate">{props.rate} of 5</div>
-            <div className="star--reviews">{props.reviews} Rates</div>
+            
+            <div className= {`star--rate ${props.textClass ? props.textClass: ''}`}>{props.rate} of 5</div>
+            {props.showReviews && <div className="star--reviews">{props.reviews} Rates</div> }
         </>   
     )
 }
+StarsRating.defaultProps = {
+    showReviews:true,
+    starsSize: 30,   
+  };
